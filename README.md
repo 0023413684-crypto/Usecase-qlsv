@@ -1,3 +1,4 @@
+```mermaid
 flowchart LR
 usecaseDiagram
 actor "Sinh viên" as SV
