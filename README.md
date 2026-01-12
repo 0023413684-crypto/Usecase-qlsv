@@ -1,42 +1,38 @@
 ```mermaid
-usecaseDiagram
-actor "Sinh viên" as SV
-actor "Giảng viên" as GV
-actor "Cán bộ quản lý" as CB
-actor "Quản trị viên" as QT
+flowchart LR
+    SV[Sinh viên]
+    GV[Giảng viên]
+    CB[Cán bộ quản lý]
+    QT[Quản trị viên]
 
-rectangle "Hệ thống Quản lý Sinh viên" {
+    subgraph HT[Hệ thống Quản lý Sinh viên]
+        Login[Đăng nhập]
+        TraCuuDiem[Tra cứu kết quả học tập]
+        DangKyMH[Đăng ký môn học]
 
-  (Đăng nhập hệ thống) as UC_Login
+        QLSV[Quản lý sinh viên]
+        QLLop[Quản lý lớp học]
+        QLMH[Quản lý môn học]
+        NhapDiem[Nhập & cập nhật điểm]
 
-  (Tra cứu thông tin sinh viên) as UC_SearchSV
-  (Tra cứu kết quả học tập) as UC_TraCuuDiem
-  (Đăng ký môn học) as UC_DangKyMH
+        QLUser[Quản lý người dùng]
+        PhanQuyen[Phân quyền hệ thống]
+    end
 
-  (Quản lý sinh viên) as UC_QLSV
-  (Quản lý lớp học) as UC_QLLop
-  (Quản lý môn học) as UC_QLMH
-  (Nhập & cập nhật điểm) as UC_NhapDiem
+    SV --> Login
+    SV --> TraCuuDiem
+    SV --> DangKyMH
 
-  (Quản lý người dùng) as UC_QLUser
-  (Phân quyền hệ thống) as UC_PhanQuyen
-}
+    GV --> Login
+    GV --> NhapDiem
+    GV --> TraCuuDiem
 
-SV --> UC_Login
-SV --> UC_TraCuuDiem
-SV --> UC_DangKyMH
+    CB --> Login
+    CB --> QLSV
+    CB --> QLLop
+    CB --> QLMH
 
-GV --> UC_Login
-GV --> UC_NhapDiem
-GV --> UC_TraCuuDiem
-
-CB --> UC_Login
-CB --> UC_QLSV
-CB --> UC_QLLop
-CB --> UC_QLMH
-CB --> UC_SearchSV
-
-QT --> UC_Login
-QT --> UC_QLUser
-QT --> UC_PhanQuyen
+    QT --> Login
+    QT --> QLUser
+    QT --> PhanQuyen
 ```
