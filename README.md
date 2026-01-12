@@ -1,5 +1,5 @@
 ```mermaid
-flowchart LR
+usecaseDiagram
 actor "Sinh viên" as SV
 actor "Giảng viên" as GV
 actor "Cán bộ quản lý" as CB
