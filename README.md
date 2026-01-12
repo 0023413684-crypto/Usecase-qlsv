@@ -1,4 +1,4 @@
-```mermaid
+flowchart LR
 usecaseDiagram
 actor "Sinh viên" as SV
 actor "Giảng viên" as GV
